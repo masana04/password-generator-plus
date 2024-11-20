@@ -22,3 +22,9 @@ Follow these instructions to run the password generator on your local machine.
 - Python 3.6 or higher installed.  
   [Download Python](https://www.python.org/downloads/)
 
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/masana04/password-generator-plus.git
+   cd password-generator-plus
