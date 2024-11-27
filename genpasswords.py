@@ -58,12 +58,18 @@ def display_header():
 
 def main():
     display_header()
-    length, use_letters, use_numbers, use_symbols = get_user_input()
-    try:
-        password = generate_password(length, use_letters, use_numbers, use_symbols)
-        print(f"\nGenerated Password: {password}")
-    except ValueError as ve:
-        print(f"Error: {ve}")
+    while True:
+        length, use_letters, use_numbers, use_symbols = get_user_input()
+        try:
+            password = generate_password(length, use_letters, use_numbers, use_symbols)
+            print(f"\nGenerated Password: {password}")
+        except ValueError as ve:
+            print(f"Error: {ve}")
+        
+        continue_prompt = get_yes_no_input("\nDo you want to generate another password? (y/n): ")
+        if not continue_prompt:
+            print("Thank you for using the Password Generator. Goodbye!")
+            break
 
 if __name__ == "__main__":
     main()
