@@ -56,16 +56,34 @@ def display_header():
     print("★ ☆ ★ ☆ ★   P A S S W O R D   G E N E R A T O R   ★ ☆ ★ ☆ ★".center(50))
     print("=" * 50)
 
+def generate_secure_password():
+    """Generates a secure password with a length of 20 characters, including letters, numbers, and symbols."""
+    return generate_password(20)
+
 def main():
     display_header()
     while True:
-        length, use_letters, use_numbers, use_symbols = get_user_input()
-        try:
-            password = generate_password(length, use_letters, use_numbers, use_symbols)
-            print(f"\nGenerated Password: {password}")
-        except ValueError as ve:
-            print(f"Error: {ve}")
-        
+        print("\nChoose one of the following options:")
+        print("1. Generate a secure password")
+        print("2. Customize your password")
+
+        choice = input("Enter 1 or 2: ").strip()
+
+        if choice == '1':
+            print("\nGenerating a secure password...")
+            password = generate_secure_password()
+            print(f"Generated Secure Password: {password}")
+        elif choice == '2':
+            length, use_letters, use_numbers, use_symbols = get_user_input()
+            try:
+                password = generate_password(length, use_letters, use_numbers, use_symbols)
+                print(f"\nGenerated Password: {password}")
+            except ValueError as ve:
+                print(f"Error: {ve}")
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
+            continue
+
         continue_prompt = get_yes_no_input("\nDo you want to generate another password? (y/n): ")
         if not continue_prompt:
             print("Thank you for using the Password Generator. Goodbye!")
