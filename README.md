@@ -1,4 +1,4 @@
-# Password Generator Plus
+# Secure Password Generator
 
 A customizable, secure, and user-friendly password generator written in Python. This tool allows users to create strong passwords tailored to their specific needs, with options to include letters, numbers, and symbols.
 
